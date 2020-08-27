@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /kak-oplatit
+Disallow: /o-nas/
+Sitemap: http://anglius.ru/sitemap.xml
+Host: https://anglius.ru/

@@ -1,0 +1,7 @@
+AuthType Basic
+AuthName "/www/anglius.ru/webstat"
+AuthUserFile /var/www/u0120392/data/etc/43126771.passwd
+DirectoryIndex index.html
+<Limit GET POST>
+	require valid-user
+</Limit>

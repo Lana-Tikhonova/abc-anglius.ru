@@ -1,0 +1,125 @@
+<?php
+$userfields=unserialize($user['fields']);
+//$answers=unserialize($q['more']['answers']);
+//$temp=($q['more']['name']>20)?($q['more']['name']-20).' курс':$q['more']['name'].' класс';
+//if(!isset($q['basket']['numberofq'])&&isset($q['numberofq'])){$q['basket']['numberofq']=$q['numberofq'];}
+//print_r($q);
+?>
+
+<div class='about' style='margin-top:0'><?=$q['more']['name']?></div>
+<div class='form7'>
+<?=html_sources('return','jquery_validate.js')?>
+<?=isset($q['message']) ? html_array('form/message',$q['message']) : ''?>
+<form method="post" class="form validate" enctype="multipart/form-data" style="width:100%">
+<?php
+if($q['more']['teacher']==0) {
+        echo '<label>'.i18n('olympiads|fio1').'</label>';
+	$template_fio ='<div class="form-group form_input teacher" id="teacher{i}" data-id="{i}">';
+	$template_fio.='<input name="fio[{i}]" value="{fio}" class="form-control required float-left" placeholder="Иванов Иван" />';
+	$template_fio.='<a class="ansclose" style="margin-left:10px;padding-top:5px;" href="javascript:fclose({i})"><img src="/templates/images/close.png" alt="удалить" title="удалить"></a>';
+	$template_fio.='<div class="clear-both"></div>';
+	$template_fio.='</div>';
+	if(isset($q['basket']['fio'])) {
+		$fio=explode('|',$q['basket']['fio']);
+		foreach($fio as $key=>$val) {
+			$temp=str_replace(array('{i}','{fio}'),array($key,$val),$template_fio);
+			if($key==0){$temp=preg_replace('/<a class="ansclose".*?<\/a>/','',$temp);}
+			echo $temp;
+		}
+	}
+	else {
+		echo str_replace(array('{i}','{fio}'),array(0,$userfields[3][0].' '.$userfields[1][0]),preg_replace('/<a class="ansclose".*?<\/a>/','',$template_fio));
+	}
+	echo "<div class='reg2 gradient1 border5' id='addf' style='margin:0;margin-left:170px;margin-top:6px;'>".i18n('olympiads|add_teacher')."</div>";
+}
+
+echo html_array('form/input',array(
+	'caption'	=>	i18n('olympiads|workplace'),
+	'name'	=>	'workplace',
+	'value'	=>	isset($q['basket']['workplace']) ? $q['basket']['workplace'] : $userfields[4][0].' '.$userfields[2][0],
+	'attr'	=>	' required',
+));
+
+echo html_array('form/input',array(
+	'caption'	=>	'класс',
+	'name'	=>	'klass',
+	'value'	=>	isset($q['basket']['klass']) ? $q['basket']['klass'] : '',
+	'attr'	=>	' required',
+));
+
+echo '<div>&nbsp;</div><label>Список участников:</label>'; 
+$template ='<div class="form-group form_input pupil" id="pupil{i}" data-id="{i}">';
+$template.='<input name="answers[{i}][fio]" value="{fio}" class="form-control required float-left" placeholder="Иванов Иван" />';
+$template.='<a class="ansclose" style="margin-left:10px;padding-top:5px;" href="javascript:fclose2({i})"><img src="/templates/images/close.png" alt="удалить" title="удалить"></a>';
+$template.='<div class="clear-both"></div>';
+$template.='</div>';
+if(isset($q['basket']['results'])){
+	$firstelem=key($q['basket']['results']);
+	$fileattr=' required';
+	foreach($q['basket']['results'] as $k1=>$v1) {
+		if($v1['fio']!='') $fileattr='';
+		$temp=str_replace(array('{i}','{fio}'),array($k1,$v1['fio']),$template);
+		if($k1==$firstelem){$temp=preg_replace('/<a class="ansclose".*?<\/a>/','',$temp);}
+		echo $temp;
+	}
+	$kolvo=count($q['basket']['results']);
+	if($kolvo>=5) {$sum=$kolvo*$q['more']['price2'];}
+	else $sum=$kolvo*$q['more']['price'];
+}
+else {
+	//учителя
+	echo str_replace(array('{i}','{fio}'),array(0,$userfields[3][0].' '.$userfields[1][0]),preg_replace('/<a class="ansclose".*?<\/a>/','',$template));
+	$sum=$q['more']['price'];
+}
+echo "<div class='reg2 gradient1 border5' id='add' style='margin:0;margin-left:170px;margin-top:6px;'>".i18n('olympiads|add_result')."</div>";
+
+echo html_array('form/file',array(
+	'caption'	=>	i18n('olympiads|upload'),
+	'name'	=>	'attaches',
+	'attr'	=>	$fileattr,
+));
+echo i18n('olympiads|upload_txt');
+
+echo "<div class='summ'><b>Сумма к оплате <span>".$sum."</span> руб.</b></div>";
+
+echo html_array('form/button',array(
+	'name'	=>	i18n('olympiads|send'),
+	'class'	=>	' reg2 gradient1'
+));
+?>
+
+</form>
+
+<script>
+<?php if($q['more']['teacher']==0) { ?>
+var tmplf='<?=$template_fio?>';
+<?php } ?>
+var tmpl='<?=$template?>';
+function showprice() {
+	var count=$(".pupil").length;
+	if(count>=5) {var price=count*<?=$q['more']['price2']?>;}
+	else {var price=count*<?=$q['more']['price']?>;}
+	$('.summ span').text(price);
+}
+$('#add').click(function(){
+        var content=tmpl.replace(/{i}/g,$('.pupil:last').data('id')+1);
+	content = content.replace(/{[\w]*}/g,"");
+	$(content).insertBefore($(this));
+	showprice();
+	return false;
+});
+function fclose2(i){
+	$("#pupil"+i).remove();
+	showprice();
+}
+$('#addf').click(function(){
+        var content=tmplf.replace(/{i}/g,$('.teacher:last').data('id')+1);
+	content = content.replace(/{[\w]*}/g,"");
+	$(content).insertBefore($(this));
+	return false;
+});
+function fclose(i){
+	$("#teacher"+i).remove();
+}
+</script>
+</div>
