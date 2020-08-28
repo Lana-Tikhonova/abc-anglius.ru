@@ -14,6 +14,13 @@ if ($_SERVER['REMOTE_ADDR']=='127.0.0.1' AND $_SERVER['SERVER_ADDR']=='127.0.0.1
 	$config['mysql_password'] = '';
 	$config['mysql_database'] = 'anglius.dev';
 }
+//исключение для тестового сервера
+if($_SERVER['SERVER_NAME'] == 'test04.abc-cms.com'){
+	$config['mysql_server'] = 'db1.unlim.com';
+	$config['mysql_username'] = 'u11788_test16';
+	$config['mysql_password'] = 'AcT4K0L00rhL';
+	$config['mysql_database'] = 'u11788_test16';
+}
 $config['mysql_charset']	= 'UTF8';
 $config['mysql_connect']	= false; //по умолчанию база не подключена
 $config['mysql_error']		= false; //ошибка подключения к базе
