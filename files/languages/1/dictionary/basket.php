@@ -1,0 +1,22 @@
+<?php
+$lang['basket'] = array(
+	'product_id'=>'ID',
+	'product_name'=>'Название товара',
+	'product_price'=>'цена',
+	'product_count'=>'Количество',
+	'product_summ'=>'Сумма',
+	'product_cost'=>'Стоимость',
+	'product_delete'=>'удалить',
+	'total'=>'Итого',
+	'profile'=>'Личные данные',
+	'delivery'=>'Доставка',
+	'delivery_cost'=>'Стоимость доставки',
+	'comment'=>'Комментарий',
+	'order'=>'Оформить заказ',
+	'orders'=>'Мои заказы',
+	'order_name'=>'Заказ',
+	'order_from'=>'от',
+	'order_status'=>'статус',
+	'order_date'=>'дата',
+	'view_order'=>'посмотреть заказ на сайте',
+);?>

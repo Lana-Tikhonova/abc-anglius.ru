@@ -35,7 +35,7 @@
         <a href='/<?=$modules['olympiads']?>/' class='border5 gradient1'>ОЛИМПИАДЫ</a>
         <a href='/<?=$modules['tests']?>/' class='border5 gradient1'>КОНКУРСЫ УЧИТЕЛЕЙ</a>
         <a href='/<?=$modules['publications']?>/' class='border5 gradient1'>ПУБЛИКАЦИИ</a>
-        <div style='margin:auto;width:494px;'>
+        <div class="buttons-block">
         <a href='/<?=$modules['contests']?>/' class='border5 gradient1'>ТВОРЧЕСКИЕ КОНКУРСЫ</a>
         <a href='/<?=$config['conferences']?>/' class='border5 gradient1'>КОНФЕРЕНЦИИ</a>
         </div>

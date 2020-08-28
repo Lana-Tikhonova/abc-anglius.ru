@@ -24,10 +24,34 @@ if(in_array($html['module'],array($modules['registration'],$modules['login'],$mo
 </head>
 
 <body>
+<div class="backdrop"></div>
   <div class='container header'>
     <a class='logo' href='/'>
       <img src='/templates/images/logo.png' alt='Англиус. Международный портал дистанционных проектов по английскому языку' title='Англиус. Международный портал дистанционных проектов по английскому языку'>
     </a>
+      <div class="mobile-menu__btn">
+        <div class="mobile-menu__icon"></div>
+      </div>
+      <div class="mobile-menu menu">
+        <div class="mobile-menu__btn_close">
+          <div class="mobile-menu__icon_close"></div>
+        </div>
+        <h3 class="mobile-menu__title">Меню</h3>
+        <?php echo html_query('menu/top',"
+          SELECT name,url,id,img
+          FROM pages
+          WHERE level=1 AND display=1 AND menu = 1
+          ORDER BY left_key
+        ",'',60*60,'json');
+        ?>	
+        <?php echo html_query('menu/top2',"
+          SELECT name,url,id,img
+          FROM pages
+          WHERE level=1 AND display=1 AND menu3 = 1
+          ORDER BY left_key
+        ",'',60*60,'json');
+        ?>
+    </div>
     <a class='mail' href='mailto:info@anglius.ru'>info@anglius.ru</a>
 <?php if (access('user auth')) {
   $userfields=unserialize($user['fields']);
@@ -43,7 +67,7 @@ if(in_array($html['module'],array($modules['registration'],$modules['login'],$mo
     <a href='/<?=$modules['profile']?>/'><div class='enter'>Войти</div></a>
 <?php } ?>
     <div class='clear-both'></div>
-	<div style="text-align: right;"><?=i18n('common|smi')?></div>
+	<div class="header-text-top"><?=i18n('common|smi')?></div>
   </div>
   <div class='menu'>
     <div class='container'>		
@@ -88,7 +112,22 @@ elseif (file_exists(ROOT_DIR.$config['style'].'/includes/'.$html['module'].'/tem
       <div class='clear-both'></div>
     </div>
   </div>
-
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        //открытие меню при клике на бургер
+        $('.mobile-menu__btn').on('click', function () {
+            $('.mobile-menu').addClass('active');
+            $('.backdrop').addClass('active');
+            $('body').addClass('locked');
+        });
+        //закрытие меню при клике на крестик
+        $('.mobile-menu__btn_close').on('click', function () {
+            $('.mobile-menu').removeClass('active');
+            $('.backdrop').removeClass('active');
+            $('body').removeClass('locked');
+        });
+    });
+</script>
   <script type="text/javascript">(function() {
   if (window.pluso)if (typeof window.pluso.start == "function") return;
   if (window.ifpluso==undefined) { window.ifpluso = 1;

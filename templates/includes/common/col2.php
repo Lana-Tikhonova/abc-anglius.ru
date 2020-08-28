@@ -1,5 +1,5 @@
 <?=html_sources('return','jquery_validate.js')?>
-      <a href='http://mir-olimpiad.ru/?utm_source=english' target='_blank'><img src='/templates/images/bnr.jpg'></a>
+      <a href='http://mir-olimpiad.ru/?utm_source=english' target='_blank' class="col2-mir-olimpiad"><img src='/templates/images/bnr.jpg'></a>
 
       <div class='feedback gradient1' id='feed'>
         <div class='head text-center'>ЗАДАТЬ ВОПРОС</div>
