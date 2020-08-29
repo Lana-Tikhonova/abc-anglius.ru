@@ -1,7 +1,7 @@
   <div class='container lastk'>
     <div class='filter'>
       <a class='border5 gradient3' href='/<?=$u[1]?>/'>Все олимпиады</a>
-      <a class='border5 gradient3' style='margin-left:225px;margin-right:225px;' href='/<?=$u[1]?>/?filter=1'>Для учащихся и студентов</a>
+      <a class='border5 gradient3 filter-btn' href='/<?=$u[1]?>/?filter=1'>Для учащихся и студентов</a>
       <a class='border5 gradient3' href='/<?=$u[1]?>/?filter=2'>Для педагогов</a>
       <div class='clear-both'></div>
     </div>

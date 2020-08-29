@@ -51,6 +51,7 @@ if(in_array($html['module'],array($modules['registration'],$modules['login'],$mo
           ORDER BY left_key
         ",'',60*60,'json');
         ?>
+        <a class='mail' href='mailto:info@anglius.ru'>info@anglius.ru</a>
     </div>
     <a class='mail' href='mailto:info@anglius.ru'>info@anglius.ru</a>
 <?php if (access('user auth')) {

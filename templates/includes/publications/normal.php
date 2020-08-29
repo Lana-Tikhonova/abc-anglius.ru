@@ -5,20 +5,20 @@
         <div class='block' style='background-image:url(/templates/images/sandclock.png)'>
           <div class='table'>
             <div class='tr'>
-              <div class='td' style='width:275px;'><b>СВИДЕТЕЛЬСТВО ВЫДАЕТСЯ</b></div>
-              <div class='td' style='width:345px;'><?=i18n('common|publications_period')?></div>
+              <div class='td td-title'><b>СВИДЕТЕЛЬСТВО ВЫДАЕТСЯ</b></div>
+              <div class='td td-text'><?=i18n('common|publications_period')?></div>
             </div>
             <div class='tr'>
-              <div class='td'><b>КАЖДОМУ УЧАСТНИКУ</b></div>
-              <div class='td'>сертификат по ИКТ-компетентности в подарок!</div>
+              <div class='td td-title'><b>КАЖДОМУ УЧАСТНИКУ</b></div>
+              <div class='td td-text'>сертификат по ИКТ-компетентности в подарок!</div>
             </div>
           </div>
         </div>
         <div class='block' style='background-image:url(/templates/images/infored.png)'>
           <div class='table'>
             <div class='tr'>
-              <div class='td' style='width:275px;'><b>СТОИМОСТЬ УЧАСТИЯ</b></div>
-              <div class='td' style='width:345px;'><?=i18n('common|publications_price')?> рублей.</div>
+              <div class='td td-title'><b>СТОИМОСТЬ УЧАСТИЯ</b></div>
+              <div class='td td-text'><?=i18n('common|publications_price')?> рублей.</div>
             </div>
           </div>
         </div>
