@@ -1,3 +1,4 @@
+
 <table class="anstbl" style='float:none;'>
 <tr><th valign=top class="fio"><?=i18n('olympiads|fio2')?></th>
 <?php $basket = $q['basket']; //var_dump($basket);

@@ -29,7 +29,7 @@
             <div class='clear-both'></div>
             </div> 
               
-			<div style='width:470px;margin:auto;margin-top:66px;margin-bottom:60px;'>
+			<div class="form-data">
 				<div class='choise' style='margin-bottom:27px;'>Подтвердите Ваши данные</div>
 				<label for='f'>Фамилия</label><input id='f' name='f' value='<?= $basket['f'] ?>'>
 				<label for='io'>Имя Отчество</label><input name='io' value='<?= $basket['io'] ?>'>
@@ -39,7 +39,7 @@
 			</div>
 				
             <div class='rightornot'>
-				<input type='submit' class='btn' value='ОПЛАТИТЬ ОРГАНИЗАЦИОННЫЙ ВЗНОС И СКАЧАТЬ ДОКУМЕНТ'>					
+                <button type='submit' class='btn'>ОПЛАТИТЬ ОРГАНИЗАЦИОННЫЙ ВЗНОС И СКАЧАТЬ ДОКУМЕНТ</button>				
 			</div>
             </form>
         <? else: ?>

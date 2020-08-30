@@ -30,7 +30,7 @@ if($q['more']['teacher']==0) {
 	else {
 		echo str_replace(array('{i}','{fio}'),array(0,$userfields[3][0].' '.$userfields[1][0]),preg_replace('/<a class="ansclose".*?<\/a>/','',$template_fio));
 	}
-	echo "<div class='reg2 gradient1 border5' id='addf' style='margin:0;margin-left:170px;margin-top:6px;'>".i18n('olympiads|add_teacher')."</div>";
+	echo "<div class='reg2 gradient1 border5 btn-add_teacher' id='addf'>".i18n('olympiads|add_teacher')."</div>";
 }
 
 echo html_array('form/input',array(

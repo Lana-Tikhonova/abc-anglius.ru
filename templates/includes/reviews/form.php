@@ -2,7 +2,7 @@
 
 <center>
 <div class='about' style='margin-top:0;margin-bottom:10px;'><?=i18n('reviews|filltheform')?></div>
-<div style='width:600px;'><?=i18n('reviews|text_form')?></div>
+<div class="order-profile"><?=i18n('reviews|text_form')?></div>
 </center>
 <div class='form7'>
 <?=html_sources('return','jquery_validate.js')?>

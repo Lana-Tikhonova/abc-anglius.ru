@@ -1,8 +1,8 @@
 <?php $userfields=unserialize($user['fields']); ?>
 
 <center>
-<div class='head' style='width:600px;margin-top:0;margin-bottom:10px;'><?=i18n('conferences|confname')?></div>
-<div style='width:600px;'><?=i18n('conferences|text_form')?></div>
+<div class='head order-profile' style='margin-top:0;margin-bottom:10px;'><?=i18n('conferences|confname')?></div>
+<div  class="order-profile"><?=i18n('conferences|text_form')?></div>
 </center>
 <div class='form7'>
 <?=html_sources('return','jquery_validate.js')?>
