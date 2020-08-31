@@ -11,7 +11,7 @@ if ($html['module2']) {
 else { ?>
 	<div<?=editable('pages|text|'.$page['id'])?>><?=$page['text']?></div>
 <?php } ?>
-      </div>
+      </div></div></div>
       <div class='clear-both'></div>
     </div>
   </div>

@@ -716,8 +716,8 @@ a.particip:hover {
 
 .topbtn {
   position: absolute;
+  bottom: 10px;
   right: 0;
-  top: 20px;
   font-size: 18px;
   padding: 8px 35px;
 }
@@ -2654,6 +2654,10 @@ textarea {
     margin-left: auto;
   }
 
+  .block1 {
+    padding: 15px;
+  }
+
   .mail {
     margin-left: 103px;
   }
@@ -2779,11 +2783,7 @@ textarea {
   }
 
   .anstbl {
-    width: 700px;
-  }
-
-  .anstbl-results-wrapper .anstbl {
-    width: 652px;
+    width: 100%;
   }
 
   .list .block .text {
@@ -2991,7 +2991,7 @@ textarea {
     padding: 10px;
   }
 
-  .particip {
+  .olymp .block1 .particip {
     margin-bottom: 10px;
   }
 }
@@ -3036,7 +3036,7 @@ textarea {
     background-size: contain;
   }
 
-  .particip {
+  .olymp .block1 .particip {
     display: block;
     width: 144px;
   }
@@ -3337,12 +3337,8 @@ textarea {
     overflow: auto;
   }
 
-  .anstbl {
-    table-layout: fixed;
-  }
-
   .anstbl th.fio {
-    width: 155px;
+    width: auto;
   }
 
   .order-profile {
@@ -3676,7 +3672,7 @@ textarea {
   }
 
   .form_message.bg-danger {
-    width: 100%;
+    width: 93%;
   }
 
   .list .block .text {
@@ -3691,16 +3687,9 @@ textarea {
     width: 100%;
   }
 
-  .anstbl-results-wrapper {
-    overflow: auto;
-    width: 100%;
+  .anstbl {
+    font-size: 13px;
   }
-
-  .anstbl-results-wrapper .anstbl {
-    width: 500px;
-  }
-
-
 }
 
 @media screen and (max-width: 440px) {
@@ -3775,7 +3764,6 @@ textarea {
   }
 
   .topbtn {
-    top: 25px;
     padding: 8px 14px;
   }
 
@@ -3818,8 +3806,9 @@ textarea {
     font-size: 11px;
   }
 
-  .particip {
+  .olymp .block1 .particip {
     float: inherit;
     margin: auto;
   }
+
 }
