@@ -21,7 +21,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') { // тоже локальная в�
 	$config['mysql_database'] = 'abc-anglius.ru';
 }
 //исключение для тестового сервера
-if($_SERVER['SERVER_NAME'] == 'test04.abc-cms.com'){
+if($_SERVER['SERVER_NAME'] == 'test16.abc-cms.com'){
 	$config['mysql_server'] = 'db1.unlim.com';
 	$config['mysql_username'] = 'u11788_test16';
 	$config['mysql_password'] = 'AcT4K0L00rhL';

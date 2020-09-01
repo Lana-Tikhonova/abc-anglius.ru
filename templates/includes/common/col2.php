@@ -9,7 +9,7 @@
 echo html_array('form/input',array(
 	'caption'	=>	i18n('feedback|name'),
 	'name'	=>	'name',
-	'value'	=>	isset($q['name']) ? $q['name'] : $userfields[3][0].' '.$userfields[1][0],
+	'value'	=>	isset($q['name']) ? $q['name'] : (isset($userfields[3][0]) ? $userfields[3][0] : '') .' '. (isset($userfields[1][0]) ? $userfields[1][0] : ''),
 	'attr'	=>	' required gradient2',
 	'placeholder'	=>	'Иванов Иван'
 ));

@@ -6,7 +6,7 @@
       <div class='rightcol'>
 <?php
 if ($html['module2']) {
-	echo $html['content'];
+	echo isset($html['content']) ? $html['content'] : '';
 }
 else { ?>
 	<div<?=editable('pages|text|'.$page['id'])?>><?=$page['text']?></div>
