@@ -37,7 +37,7 @@ $queries = array(
 		ADD KEY `type` (`type`)",
 	"ALTER TABLE `online_olympiads`
 		MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1",
-	
+
 	"CREATE TABLE IF NOT EXISTS `online_olympiads_categories` (
 		`id` int(10) unsigned NOT NULL,
 		`rank` smallint(5) unsigned NOT NULL DEFAULT '1',
@@ -59,7 +59,7 @@ $queries = array(
 		ADD KEY `display` (`display`)",
 	"ALTER TABLE `online_olympiads_categories`
 		MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1",
-	
+
 	"CREATE TABLE IF NOT EXISTS `online_olympiads_tests` (
 		`id` int(10) unsigned NOT NULL,
 		`olympiad` int(10) unsigned NOT NULL,
@@ -76,7 +76,8 @@ $queries = array(
 	"ALTER TABLE `online_olympiads_tests`
 		MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1",
 	*/
-	"ALTER TABLE `pages` ADD `menu3` TINYINT(1) NOT NULL DEFAULT '0' AFTER `menu2`"
+//	"ALTER TABLE `pages` ADD `menu3` TINYINT(1) NOT NULL DEFAULT '0' AFTER `menu2`"
+	"",
 );
 foreach ($queries as $query) {
 	if ($query) {

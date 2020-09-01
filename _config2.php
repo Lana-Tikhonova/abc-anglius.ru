@@ -14,6 +14,12 @@ if ($_SERVER['REMOTE_ADDR']=='127.0.0.1' AND $_SERVER['SERVER_ADDR']=='127.0.0.1
 	$config['mysql_password'] = '';
 	$config['mysql_database'] = 'anglius.dev';
 }
+if ($_SERVER['SERVER_NAME'] == 'localhost') { // тоже локальная версия (в частности для докера)
+	$config['mysql_server'] = 'mariadb';
+	$config['mysql_username'] = 'root';
+	$config['mysql_password'] = '';
+	$config['mysql_database'] = 'abc-anglius.ru';
+}
 //исключение для тестового сервера
 if($_SERVER['SERVER_NAME'] == 'test04.abc-cms.com'){
 	$config['mysql_server'] = 'db1.unlim.com';
@@ -118,7 +124,7 @@ $config['types']=array(
 	4=>'Конкурс учителей',
 	5=>'Сертификат',
 	6=>'Конференция',
-	7=>'Рецензия',        
+	7=>'Рецензия',
 );
 $config['types_modules']=array(
 	1=>'olympiads',
