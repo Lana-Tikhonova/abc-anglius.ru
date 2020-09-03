@@ -1,3 +1,4 @@
+<div style='margin-bottom:10px;'><?=i18n('conferences|text_list')?></div>
 <div class='curorder'><div class='block1' style='padding-bottom:25px;'>
 <table style="width:97%">
 <?php
@@ -34,3 +35,4 @@ foreach ($q as $k=>$v) {
 ?>
 </table>
 </div></div>
+<a class='leftitem' style='margin:20px auto;text-align:center;' href='add/'><?=i18n('conferences|add')?></a>

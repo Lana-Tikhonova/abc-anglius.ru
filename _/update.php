@@ -12,71 +12,26 @@ mysql_connect_db();
 
 //список скл запросов
 $queries = array(
-	/*
-	"CREATE TABLE IF NOT EXISTS `online_olympiads` (
-		`id` int(10) unsigned NOT NULL,
-		`category` int(11) NOT NULL,
-		`type` tinyint(3) unsigned NOT NULL DEFAULT '1',
-		`rank` smallint(5) unsigned NOT NULL DEFAULT '1',
-		`display` tinyint(1) unsigned NOT NULL DEFAULT '1',
-		`img` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-		`name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-		`text` text COLLATE utf8_unicode_ci NOT NULL,
-		`url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-		`title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-		`keywords` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-		`description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-		`kl1` tinyint(1) unsigned DEFAULT '0',
-		`kl2` tinyint(1) unsigned DEFAULT '0',
-		`kl3` tinyint(1) unsigned DEFAULT '0'
-	  ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci",
-	"ALTER TABLE `online_olympiads`
-		ADD PRIMARY KEY (`id`),
-		ADD KEY `display` (`display`),
-		ADD KEY `rank` (`rank`),
-		ADD KEY `type` (`type`)",
-	"ALTER TABLE `online_olympiads`
-		MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1",
-
-	"CREATE TABLE IF NOT EXISTS `online_olympiads_categories` (
-		`id` int(10) unsigned NOT NULL,
-		`rank` smallint(5) unsigned NOT NULL DEFAULT '1',
-		`teacher` tinyint(1) unsigned NOT NULL,
-		`display` tinyint(1) unsigned NOT NULL DEFAULT '1',
-		`name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-		`price` int(10) unsigned NOT NULL DEFAULT '0',
-		`price2` int(10) unsigned NOT NULL DEFAULT '0',
-		`price3` int(10) unsigned NOT NULL DEFAULT '0',
-		`date1` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-		`date2` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-		`summarizing` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-		`text` text COLLATE utf8_unicode_ci NOT NULL,
-		`img` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-	  ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci",
-	"ALTER TABLE `online_olympiads_categories`
-		ADD PRIMARY KEY (`id`),
-		ADD KEY `rank` (`rank`),
-		ADD KEY `display` (`display`)",
-	"ALTER TABLE `online_olympiads_categories`
-		MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1",
-
-	"CREATE TABLE IF NOT EXISTS `online_olympiads_tests` (
-		`id` int(10) unsigned NOT NULL,
-		`olympiad` int(10) unsigned NOT NULL,
-		`rank` smallint(5) unsigned NOT NULL DEFAULT '1',
-		`display` tinyint(1) unsigned NOT NULL DEFAULT '1',
-		`klass` tinyint(1) unsigned NOT NULL DEFAULT '0',
-		`qa` text COLLATE utf8_unicode_ci NOT NULL
-	  ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci",
-	"ALTER TABLE `online_olympiads_tests`
-		ADD PRIMARY KEY (`id`),
-		ADD KEY `olympiad` (`olympiad`),
-		ADD KEY `rank` (`rank`),
-		ADD KEY `display` (`display`)",
-	"ALTER TABLE `online_olympiads_tests`
-		MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1",
-	*/
-//	"ALTER TABLE `pages` ADD `menu3` TINYINT(1) NOT NULL DEFAULT '0' AFTER `menu2`"
+	"CREATE TABLE `conferences` (
+	  `id` int(10) UNSIGNED NOT NULL,
+	  `price` int(10) UNSIGNED NOT NULL DEFAULT 0,
+	  `rank` smallint(5) UNSIGNED NOT NULL DEFAULT 1,
+	  `display` tinyint(1) UNSIGNED NOT NULL DEFAULT 1,
+	  `shortdesc` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+	  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+	  `text` text COLLATE utf8_unicode_ci NOT NULL,
+	  `url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+	  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+	  `keywords` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+	  `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+	  `img` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+	) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci",
+	"ALTER TABLE `conferences`
+	  ADD PRIMARY KEY (`id`),
+	  ADD KEY `rank` (`rank`),
+	  ADD KEY `display` (`display`)",
+	"ALTER TABLE `conferences`
+  		MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;",
 	"",
 );
 foreach ($queries as $query) {

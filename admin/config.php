@@ -50,18 +50,19 @@ $modules_admin = array(
 	'contests'=>'contests',
 	'publications' => 'publications',
 	'tests'	=> 'tests',
-        'online_olympiads' => [
-            'online_olympiads91_tests'=>'online_olympiads91_tests',
-            'online_olympiads91'=>'online_olympiads91',
-            'online_olympiads92_tests'=>'online_olympiads92_tests',
-            'online_olympiads92'=>'online_olympiads92',
-            'online_olympiads93_tests'=>'online_olympiads93_tests',
-            'online_olympiads93'=>'online_olympiads93',
-            'online_olympiads94_tests'=>'online_olympiads94_tests',
-            'online_olympiads94'=>'online_olympiads94',
-            
-            'online_olympiads_categories'=>'online_olympiads_categories',
-        ],
+    'online_olympiads' => [
+        'online_olympiads91_tests'=>'online_olympiads91_tests',
+        'online_olympiads91'=>'online_olympiads91',
+        'online_olympiads92_tests'=>'online_olympiads92_tests',
+        'online_olympiads92'=>'online_olympiads92',
+        'online_olympiads93_tests'=>'online_olympiads93_tests',
+        'online_olympiads93'=>'online_olympiads93',
+        'online_olympiads94_tests'=>'online_olympiads94_tests',
+        'online_olympiads94'=>'online_olympiads94',
+
+        'online_olympiads_categories'=>'online_olympiads_categories',
+    ],
+    'conferences' => 'conferences',
 //	'news'		=> 'news',
 //	'gallery' => array(
 //		'gallery'	=> 'gallery',
@@ -69,7 +70,7 @@ $modules_admin = array(
 //	),
 	'dictionary'	=> 'languages',
 	'feedback'=>'feedback',
-//  
+//
 //	'catalog' => array(
 //		'shop_products'	=> 'shop_products',
 //		//'shop_items'	=> 'shop_items',

@@ -13,6 +13,7 @@ $modules_site = array(
 	'online_olympiads93'	=> $config['online_types'][93],
 	'online_olympiads94'	=> $config['online_types'][94],
 	'online_tests'          => 'Онлайн тестирование',
+    'conferences'		=> 'Конференции',
 //	'shop'			=> 'Каталог',
 //	'basket'		=> 'Корзина',
 	'feedback'		=> 'Обратная связь',
