@@ -3812,3 +3812,43 @@ textarea {
   }
 
 }
+
+.conferences .card {display: flex; width: 100%; flex-direction: row; flex-wrap: wrap;}
+.conferences .card img {margin-right: 20px;}
+.conferences .card .txt {display: flex; flex: 1; flex-direction: column;}
+.conferences .card .txt .controls {display: flex; flex-direction: row; align-items: center; margin-top: 20px;}
+.conferences .card .txt .controls .button-wrap + .button-wrap {margin-left: 20px;}
+.conferences .card .name {
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+/*.info {padding: 20px 0;}*/
+.info .info3 {margin-bottom: 20px;}
+.list_cont .block1 {display: flex; flex-direction: row;}
+.list_cont .block1 img {margin-right: 20px;}
+.list_cont .block1 .txt {flex: 1; display: flex; flex-direction: column;}
+.list_cont .block1 b {margin: 0;}
+.list_cont .block1 .arrow {
+  margin: 0 20px; border: 1px solid #3c3c3c; width: 24px; height: 24px;
+  text-align: center;
+}
+.list_cont .block1 .arrow:hover {border-color: #cf142b;}
+/*.btn-blue {font-size: 14px; font-weight: bold; color: #fff;}*/
+
+.offer {width: 100%;
+  background: rgba(20, 38, 96, 0.9) url('/templates/images/infored.png') no-repeat 14px center;
+  min-height: 94px;
+  margin-bottom: 60px;
+  padding-left: 60px;
+  padding-right: 30px;
+  display: flex;
+  /*justify-content: space-between;*/
+  align-items: center;
+}
+.offer h4 {color: #a4b7eb; font-size: 24px; font-weight: bold;}
+.offer .offer-price {font-weight: bold; font-size: 36px; color: #fff; margin: 0 30px;}
+.offer .button {background-color: #fff; color: #333333; font-weight: bold; padding: 4px 8px;}

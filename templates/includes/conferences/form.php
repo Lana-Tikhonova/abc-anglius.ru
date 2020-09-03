@@ -1,13 +1,13 @@
 <?php $userfields=unserialize($user['fields']); ?>
-<div class='form7top'>
-  <div class='container'>
-    <div>Конференция</div>
-  </div>
-</div>
+<!--<div class='form7top'>-->
+<!--  <div class='container'>-->
+<!--    <div>Конференция</div>-->
+<!--  </div>-->
+<!--</div>-->
 
-<div class='container form7'>
-  <div class='head'><?=i18n('conferences|filltheform')?></div>
-  <div class='about'><?=$page['testname']?></div>
+<div class='container form7' style="margin-bottom: 60px;">
+<!--  <div class='head'>--><?//=i18n('conferences|filltheform')?><!--</div>-->
+  <div class='about text-center' style="margin: 20px 0;"><?=$page['testname']?></div>
 
 <?=html_sources('return','jquery_validate.js')?>
 <?=isset($q['message']) ? html_array('form/message',$q['message']) : ''?>
@@ -76,7 +76,7 @@ if(mysql_select('select pr.percent from promocodes AS pr LEFT JOIN `promocodes-t
 
 echo html_array('form/button',array(
 	'name'	=>	i18n('conferences|send'),
-	'class'	=>	' button -secondary'
+	'class'	=>	' button -secondary gradient1'
 ));
 ?>
 </form>
