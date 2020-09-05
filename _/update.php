@@ -12,26 +12,26 @@ mysql_connect_db();
 
 //список скл запросов
 $queries = array(
-	"CREATE TABLE `conferences` (
-	  `id` int(10) UNSIGNED NOT NULL,
-	  `price` int(10) UNSIGNED NOT NULL DEFAULT 0,
-	  `rank` smallint(5) UNSIGNED NOT NULL DEFAULT 1,
-	  `display` tinyint(1) UNSIGNED NOT NULL DEFAULT 1,
-	  `shortdesc` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-	  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-	  `text` text COLLATE utf8_unicode_ci NOT NULL,
-	  `url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-	  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-	  `keywords` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-	  `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-	  `img` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-	) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci",
-	"ALTER TABLE `conferences`
-	  ADD PRIMARY KEY (`id`),
-	  ADD KEY `rank` (`rank`),
-	  ADD KEY `display` (`display`)",
-	"ALTER TABLE `conferences`
-  		MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;",
+//	"CREATE TABLE `conferences` (
+//	  `id` int(10) UNSIGNED NOT NULL,
+//	  `price` int(10) UNSIGNED NOT NULL DEFAULT 0,
+//	  `rank` smallint(5) UNSIGNED NOT NULL DEFAULT 1,
+//	  `display` tinyint(1) UNSIGNED NOT NULL DEFAULT 1,
+//	  `shortdesc` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+//	  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+//	  `text` text COLLATE utf8_unicode_ci NOT NULL,
+//	  `url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+//	  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+//	  `keywords` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+//	  `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+//	  `img` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+//	) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci",
+//	"ALTER TABLE `conferences`
+//	  ADD PRIMARY KEY (`id`),
+//	  ADD KEY `rank` (`rank`),
+//	  ADD KEY `display` (`display`)",
+//	"ALTER TABLE `conferences`
+//  		MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;",
 	"",
 );
 foreach ($queries as $query) {
