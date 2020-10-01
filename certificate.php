@@ -41,7 +41,7 @@ function textinblock($img,$color,$font,$fontsize,$str,$param,$wordwrap=true) {
     $ret='';
     foreach($words as $word) {
       $tmp_string = $ret.' '.$word;
-      // Получение параметров рамки обрамляющей текст, т.е. размер временной строки 
+      // Получение параметров рамки обрамляющей текст, т.е. размер временной строки
       $bigbox = imagettfbbox($fontsize,0,$font,$tmp_string);
       // Если временная строка не укладывается в нужные нам границы, то делаем перенос строки, иначе добавляем еще одно слово
       if($bigbox[2] > $param['w']) $ret.=($ret==""?"":"\n").$word;
@@ -158,9 +158,10 @@ else {
 						//диплом ok
 						if($order['type']==8) {$ol['testname']=$basket['results'][$number]['klass'];} else
 						$ol['testname']=mysql_select('select name from olympiads_tests where id='.$basket['results'][$number]['test'],'string')+0;
-						if($ol['testname']>20) {$ol['testname']='студент(ка) '.($ol['testname']-20).' курса';}
-							else {$ol['testname']='ученик(ца) '.$ol['testname'].' класса';}
-		// изменена дата с 2016 на 2014 год				
+						if($ol['testname']==31) {$ol['testname']='дошкольник(ца)';}
+						elseif($ol['testname']>20) {$ol['testname']='студент(ка) '.($ol['testname']-20).' курса';}
+						else {$ol['testname']='ученик(ца) '.$ol['testname'].' класса';}
+		// изменена дата с 2016 на 2014 год
 						if(strtotime($order['date'])>strtotime('2014-12-13 00:00:00')) {
 							//новый
 							//$img=imagecreatefromjpeg('./certif_7HbghJk/1/2/'.$basket['results'][$number]['place'].'_2.jpg');
@@ -175,7 +176,7 @@ else {
 							textinblock($img,$color1,$font1_path,38,$ol['testname'].', '.$basket['workplace'],array('x'=>327,'y'=>2060,'w'=>1832,'h'=>0,'h_align'=>'center','v_align'=>'top'));
 							textinblock($img,$color1,$font_path,31,'регистрационный номер диплома '.$order['id'].sprintf('%02s',$number),array('x'=>327,'y'=>2529,'w'=>1832,'h'=>0,'h_align'=>'center','v_align'=>'top'));
 							textinblock($img,$color1,$font_path,31,date2(($order['date_paid']!=0?$order['date_paid']:$order['date']),'d month y').' года           /           Anglius.ru',array('x'=>327,'y'=>3190,'w'=>1832,'h'=>0,'h_align'=>'center','v_align'=>'top'),false);
-						} 
+						}
 						//координатор
 						if (isset($fios[0]) && !empty($fios[0])) {
                             textinblock($img,$color3,$font_path,40,'Координатор: ' . $fios[0],
@@ -356,7 +357,7 @@ else {
 					else $error++;
 				}
 				break;
-			case 3:	
+			case 3:
 				$pub=mysql_select('select name,display,fio,workplace from publications where id='.$order['parent'],'row');
 				if($pub&&$pub['display']>0) {
 					$img=imagecreatefromjpeg('./certif_7HbghJk/3/blank.jpg');
@@ -428,7 +429,7 @@ else {
 					else $error++;
 				}
 				break;
-			case 6: 
+			case 6:
 				$basket['name']=trim($basket['name']);if($basket['name'][0]!='"'){$basket['name']='"'.$basket['name'].'"';}
 				$basket['section']=trim($basket['section']);if($basket['section'][0]!='"'){$basket['section']='"'.$basket['section'].'"';}
 				switch ($number) {
@@ -498,24 +499,24 @@ else {
 
 ?>
 
-<?php 
+<?php
 /**
- * 
+ *
  * @param array $q Order array
- * @param int $type Поле таблицы откуда брать данные diplom/letter 
+ * @param int $type Поле таблицы откуда брать данные diplom/letter
  * @param string $default_path полный путь до файла если путь из заказа наверен ли файла уже нет
  * @return boolean
  */
-function get_cert_path($q, $type, $default_path){    
+function get_cert_path($q, $type, $default_path){
     if (empty($q['cert_template']))
         return $default_path;
-    
+
     global $config;
-    
+
     $cert = mysql_select('SELECT * FROM cert_templates WHERE id = ' . $q['cert_template'] . ' LIMIT 1', 'row');
     //var_dump($cert); die();
     $path = ($cert) ? "./files/cert_templates/{$q['cert_template']}/{$type}/{$config['cert_templates_prefix']}-{$cert[$type]}" : false;
     //var_dump($path); die();
     return ($path && file_exists($path)) ? $path : $default_path;
-    
+
 }

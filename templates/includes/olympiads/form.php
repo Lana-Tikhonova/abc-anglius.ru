@@ -63,13 +63,13 @@ if($q['more']['options']) {
 */
 
 //if($q['more']['options']) {
-/*	
+/*
 	echo '<label>'.i18n('olympiads|answers').'</label>';
 	echo '<table class="anstbl">';
 
 	echo '<tr><th>'.i18n('olympiads|fio').'</th>';foreach($answers as $k=>$v) echo '<th>'.$k.'</th>';echo '</tr>';
 	for($i=0;$i<$q['more']['options'];$i++) {
-		echo '<tr>';		
+		echo '<tr>';
 		if($i==0) {echo '<td rowspan='.$q['more']['options'].' valign=top><input type='name'>
 		</td>';}
 		foreach($answers as $k=>$v) {
@@ -89,7 +89,7 @@ $temp=current($q['tests']);$count=count(unserialize($temp['answers']));
 
 if(count($q['tests'])>1) {
   $template.='<select name="answers[{i}][test]">';
-  foreach($q['tests'] as $k=>$v) $template.='<option value="'.$k.'">'.($v['name']>20?($v['name']-20).' курс':$v['name'].' класс').'</option>';
+  foreach($q['tests'] as $k=>$v) $template.='<option value="'.$k.'">'.(($v['name'] == 31) ? 'дошкольник' : ($v['name']>20?($v['name']-20).' курс':$v['name'].' класс')).'</option>';
   $template.='</select>';
 }
 else {
@@ -143,7 +143,7 @@ echo '</div>';
 ?>
 
 <?= html_array('form/cert_change', @$q)?>
-    
+
 <div class='summ'><b>Сумма к оплате <span><?=$sum?></span> руб.</b></div>
 <?php //if(!$q['basket']['workplace']) { ?>
 <div class='reg2 gradient1 border5' id='add'><?=i18n('olympiads|add_result')?></div>
@@ -157,7 +157,7 @@ echo html_array('form/button',array(
 ?>
 </form>
 
-<?php 
+<?php
 //if($q['basket']['workplace'])
 //echo "<div class='list curorder'>";include($ROOT_DIR.'templates/includes/order/buttons.php');echo "</div>";
 ?>

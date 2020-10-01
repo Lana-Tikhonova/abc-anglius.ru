@@ -44,7 +44,7 @@ echo '<div class="allanswers">';
 $template='<div id="ansblock{i}" class="ansblock" data-id="{i}">';
 $template.='<div class="anstbl" style="width:468px;"><div style="float:left;width:298px;margin:5px">'.i18n('olympiads|fio2').'<input class="form-control required valid" placeholder="Иванов Иван" name="answers[{i}][fio]" value="{fio}"></div><div style="float:left;width:150px;margin:5">';
 $template.='Класс / курс / педагог<select name="answers[{i}][klass]" style="margin-top:0">';
-
+$template.='<option value="31">дошкольник</option>';
 for($i=1;$i<=11;$i++) $template.='<option value="'.$i.'">'.($i>20?($i-20).' курс':$i.' класс').'</option>';
 for($i=21;$i<=24;$i++) $template.='<option value="'.$i.'">'.($i>20?($i-20).' курс':$i.' класс').'</option>';
 $template.='<option value="0">педагог</option>';
@@ -83,7 +83,7 @@ echo i18n('olympiads|upload_txt');
 ?>
 
 <?= html_array('form/cert_change', @$q)?>
-    
+
 <?php
 echo "<div class='summ'><b>Сумма к оплате <span>".$sum."</span> руб.</b></div>";
 

@@ -19,7 +19,7 @@ if($q['paid']==1) {
 		if($q['more']['teacher']==0) {
 //		  $klass=$q['basket']['klass'];
 		  $klass=$val['klass'];
-		  echo '<td>'.($klass>20?($klass-20).' курс':$klass.' класс').'</td>';
+		  echo '<td>'.(($klass == 31) ? 'дошкольник' : ($klass>20?($klass-20).' курс':$klass.' класс')).'</td>';
 		}
                 echo '<td>';
 		if(isset($val['place'])&&$val['place']) {
@@ -47,7 +47,7 @@ if($q['paid']==1) {
 ?>
 </div>
 <?php } else { ?>
-<?php 
+<?php
   $max=0;
   foreach ($q['basket']['results'] as $k=>$v) {
     $i=0;do {if($i>$max) $max=$i;$i++;} while(isset($v[$i]));
@@ -60,7 +60,7 @@ if($q['paid']==1) {
 if($q['more']['teacher']==0) {
 //  $klass=$q['basket']['klass'];
   $klass=$val['klass'];
-  echo '<td>'.($klass>20?($klass-20).' курс':$klass.' класс').'</td>';
+  echo '<td>'.(($klass == 31) ? 'дошкольник' : ($klass>20?($klass-20).' курс':$klass.' класс')).'</td>';
 }
 for($k=1;$k<=$max;$k++) { ?>
 <td><?=$val[$k]?></td>
