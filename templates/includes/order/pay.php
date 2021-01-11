@@ -3,7 +3,7 @@
 <div class='h'>Оплата онлайн</div>
 <img src='/templates/images/orn.gif'><br>Комиссия не взимается, моментальное зачисление оплаты. Моментальное изготовление диплома.
 </div>
-	
+
 <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
 <?php
   $pm=array(
@@ -23,7 +23,8 @@
     if(in_array($v['yk'],$config_pm)) {
 ?>
       <div class="poblock">
-      <a href='https://money.yandex.ru/eshop.xml?shopId=<?=$config['yandex_shopId']?>&scid=<?=$config['yandex_scid']?>&sum=<?=$q['total']?>&customerNumber=<?=$config['yandex_customerNumber']?>&orderNumber=<?=$q['id']?>&paymentType=<?=$v['yk']?>&ym_merchant_receipt=<?=getOnlineReceipt($q)?>'>
+      <? /* <a href='https://money.yandex.ru/eshop.xml?shopId=<?=$config['yandex_shopId']?>&scid=<?=$config['yandex_scid']?>&sum=<?=$q['total']?>&customerNumber=<?=$config['yandex_customerNumber']?>&orderNumber=<?=$q['id']?>&paymentType=<?=$v['yk']?>&ym_merchant_receipt=<?=getOnlineReceipt($q)?>'> */ ?>
+      <a href='https://yoomoney.ru/eshop.xml?shopId=<?=$config['yandex_shopId']?>&scid=<?=$config['yandex_scid']?>&sum=<?=$q['total']?>&customerNumber=<?=$config['yandex_customerNumber']?>&orderNumber=<?=$q['id']?>&paymentType=<?=$v['yk']?>&ym_merchant_receipt=<?=getOnlineReceipt($q)?>'>
       <img src='/templates/images/<?=$k?>.jpg'><br><?=$v['name']?>
       </a>
       </div>
@@ -33,7 +34,8 @@
   }
   if(!$flag){ ?>
       <div class="poblock">
-      <a href="https://money.yandex.ru/eshop.xml?shopId=<?=$config['yandex_shopId']?>&scid=<?=$config['yandex_scid']?>&sum=<?=$q['total']?>&customerNumber=<?=$config['yandex_customerNumber']?>&orderNumber=<?=$q['id']?>&paymentType=PC">
+      <? /* <a href="https://money.yandex.ru/eshop.xml?shopId=<?=$config['yandex_shopId']?>&scid=<?=$config['yandex_scid']?>&sum=<?=$q['total']?>&customerNumber=<?=$config['yandex_customerNumber']?>&orderNumber=<?=$q['id']?>&paymentType=PC"> */ ?>
+      <a href="https://yoomoney.ru/eshop.xml?shopId=<?=$config['yandex_shopId']?>&scid=<?=$config['yandex_scid']?>&sum=<?=$q['total']?>&customerNumber=<?=$config['yandex_customerNumber']?>&orderNumber=<?=$q['id']?>&paymentType=PC">
       <img src='/templates/images/yandex.jpg'><br><?=$pm['yandex']['name']?>
       </a>
       </div>

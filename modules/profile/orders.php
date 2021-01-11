@@ -74,7 +74,7 @@ else {
 			WHERE o.user = '".$user['id']."' AND (o.type IN (91,92,93,94)) AND $where
 			ORDER BY ".(($u[3]=='paid')?'o.type ASC, o.date DESC, ':'')." parent ASC",'rows_id')
 		) $query=$query+$q1;
-                
+
 		if($q1 = mysql_select("SELECT o.*,ol.name,ol.img,ol.teacher
 			FROM orders o
 			LEFT JOIN olympiads ol ON o.parent=ol.id
@@ -89,7 +89,7 @@ else {
 		// [5.15] добавил ниже, в условия, иначе ломается где-то
 //		krsort($query);
 //		reset($query);
-		
+
 		//$html['content'] .= html_query('order/list',$query,'Заявок не найдено');
 		// http://workspace.abc-cms.com/proekty/mir-olimpiad.ru/4/7/
                 if ($u[3]=='paid') {
@@ -105,7 +105,7 @@ else {
 //					}
                     $html['content'] .= html_query('order/list',$query,'Заявок не найдено');
                 }
-                
+
 		if($statuses[$u[3]]==2) {
 			$query = "
 				SELECT *
@@ -146,7 +146,7 @@ else {
                 if($order=mysql_select("
 			SELECT * FROM orders
 			WHERE user = ".$user['id']." AND id=$orderid
-		",'row')) {                        
+		",'row')) {
                         $order['basket']=unserialize($order['basket']);
                         // исключение смены шаблона для онлайн олимпиады - перенеено в case pay
                         /*if(isOnlineOlympiads($order['type']) && !empty($_POST['template']) && intval($_POST['template'])) {
@@ -174,10 +174,11 @@ else {
 						$basket['director']=htmlchars($_POST['director']);
 						mysql_fn('update','orders',array('id'=>$order['id'],'basket'=>serialize($basket)));
 					}
-					//$html['content']=html_array('order/pay',$order);					
+					//$html['content']=html_array('order/pay',$order);
 					break;
-				case 'payonline':				
-					echo '<html><body><form id="form" action="https://money.yandex.ru/eshop.xml" method="post">';
+				case 'payonline':
+					echo '<html><body><form id="form" action="https://yoomoney.ru/eshop.xml" method="post">';
+//					echo '<html><body><form id="form" action="https://money.yandex.ru/eshop.xml" method="post">';
 //					echo '<html><body><form id="form" action="https://demomoney.yandex.ru/eshop.xml" method="post">';
 					echo '<input name="shopId" value="'.$config['yandex_shopId'].'" type="hidden"/>';
 					echo '<input name="scid" value="'.$config['yandex_scid'].'" type="hidden"/>';
@@ -186,7 +187,7 @@ else {
 					echo '<input name="orderNumber" value="'.$orderid.'" type="hidden"/>';
 					if(!isset($_GET['method'])) $_GET['method']='PC';
 					echo '<input name="paymentType" value="'.$_GET['method'].'" type="hidden"/>';
-					echo '<input name="ym_merchant_receipt" value=\''.getOnlineReceipt($order).'\' type="hidden"/>'; 
+					echo '<input name="ym_merchant_receipt" value=\''.getOnlineReceipt($order).'\' type="hidden"/>';
 					echo '</form>';
 					echo '<script>document.getElementById("form").submit();</script></body></html>';
 					exit;
@@ -258,7 +259,7 @@ else {
 
 			$breadcrumb['module'][0] = array(0=>'Заявка №'.$u[3],1=>$config['profile'][$u[2]],'/'.$modules['profile'].'/'.$u[2].'/'.$u[3].'/');
 	                if($u[4]=='pay')
-						$html['content']=html_array('order/pay',$order);					
+						$html['content']=html_array('order/pay',$order);
 					elseif(file_exists(ROOT_DIR.'templates/includes/order/'.$order['type'].'.php'))
 						$html['content'] = html_array('order/'.$order['type'],$order,'');
 						//$html['content'] = (in_array($order['type'], [91,92,93,94])) ? html_array('order/congrats',$order,'') : html_array('order/'.$order['type'],$order,'');
