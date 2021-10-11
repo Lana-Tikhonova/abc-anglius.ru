@@ -32,6 +32,16 @@ $queries = array(
 //	  ADD KEY `display` (`display`)",
 //	"ALTER TABLE `conferences`
 //  		MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;",
+	"CREATE TABLE IF NOT EXISTS `olympiads_categories` (
+		  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+		  `rank` smallint(5) UNSIGNED NOT NULL DEFAULT 1,
+		  `teacher` tinyint(1) UNSIGNED NOT NULL,
+		  `display` tinyint(1) UNSIGNED NOT NULL DEFAULT 1,
+		  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+		  PRIMARY KEY (`id`),
+		  KEY `rank` (`rank`),
+		  KEY `display` (`display`)
+		) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci",
 	"",
 );
 foreach ($queries as $query) {

@@ -46,6 +46,7 @@ $modules_admin = array(
 	'olympiads' => array(
 		'olympiads'=>'olympiads',
 		'olympiads_tests'=>'olympiads_tests',
+		'olympiads_categories'=>'olympiads_categories',
 	),
 	'contests'=>'contests',
 	'publications' => 'publications',

@@ -31,17 +31,30 @@ $save_as = true;
 $delete['confirm'] = array('olympiads_test'=>'olympiad');
 
 $offline=array(0=>'нет',1=>'да');
+$categories = mysql_select("SELECT id,name FROM olympiads_categories order by name asc",'array');
+$filter[] = array('category',$categories,'категории олимпиад');
+$where = (isset($get['category']) && $get['category']>0) ? " AND category = '".intval($get['category'])."' " : "";
 
 $table = array(
 	'id'		=>	'rank:desc id offline',
 	'name'		=>	'',
 	'offline'	=>	$offline,
 	'teacher'	=>	$teacher,
+    'category'	=>	'<a href="/admin.php?m=olympiads_categories&id={category}">{oc_name}</a>',
 	'price'		=>	'right',
 	'price2'	=>	'right',
 	'rank'		=>	'',
 	'display'	=>	'boolean'
 );
+
+$query = "
+	SELECT
+		olympiads.*,
+		oc.name oc_name
+	FROM olympiads
+	LEFT JOIN olympiads_categories oc ON oc.id=category
+	WHERE 1 $where
+";
 
 $form[] = array('input td6','name',true);
 $form[] = array('select td2','offline',array(true,$offline),array('name'=>'оффлайн'));
@@ -54,6 +67,7 @@ $form[] = array('input td2','summarizing',true);
 $form[] = array('input td2 right','price',true);
 $form[] = array('input td2 right','price2',true);
 
+$form[] = array('select td8','category',array(true,"SELECT id,name FROM olympiads_categories ORDER BY rank DESC", '-выбрать-'));
 $form[] = array('select td3','cert_template',array(true,$cert_templates,'- по умолчанию -'),array('name'=>'Шаблон диплома'));
 $form[] = array('checkbox','cert_change',true,array('name'=>'разрешить выбор диплома'));
 $form[] = '<div class="clear"></div>';
@@ -160,5 +174,3 @@ $(document).ready(function(){
 </script>';
 
 */
-
-?>
