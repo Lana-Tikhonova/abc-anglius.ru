@@ -11,6 +11,7 @@ if ($search) {
 	$where = '';
 	//$where = (access('user admin')) ? '' : (' AND `user` = '.intval(@$user['id']) .' ');
 	$order = mysql_select("SELECT * FROM `orders` WHERE `id` = '$search' AND `paid` = 1 $where LIMIT 1", 'row') ?: [];
+//    var_dump($order); die();
 	if ($order) {
 		$order['basket'] = @unserialize($order['basket']) ?: [];
 		switch ($order['type']) {						
@@ -19,14 +20,14 @@ if ($search) {
 				$order['basket']['results'] = [];
 				$order['basket']['results'][] = [
 					//'fio' => implode(', ', [$order['basket']['fio'], $order['basket']['fio']]),
-					'fio' => $order['basket']['fio'],
+					'fio' => check_fio($order['basket']['fio'], 'скачать диплом'),
 					'url' => '/certificate.php?key='.base64_encode($order['id'].'.0')
 				];				
 				break;
 			case '6':
 				$order['basket']['results'] = [];
 				$order['basket']['results'][] = [					
-					'fio' => $order['basket']['fio'],
+					'fio' => check_fio($order['basket']['fio'], 'скачать диплом'),
 					'url' => '/certificate.php?key='.base64_encode($order['id'].'.1')
 				];				
 				$order['basket']['results'][] = [					
@@ -51,7 +52,7 @@ if ($search) {
 			case '94':
 				$order['basket']['results'] = [];
 				$order['basket']['results'][] = [
-					'fio' => implode(' ', [$order['basket']['f'], $order['basket']['io']]),
+					'fio' => check_fio(implode(' ', [$order['basket']['f'], $order['basket']['io']]), 'скачать диплом'),
 					'url' => '/certificate'.(isOnlineOlympiads(@$order['type'])?'_online':'').'.php?key='.base64_encode($order['id'])
 				];
 				break;
@@ -67,7 +68,7 @@ if ($search) {
 				$fios = explode('|', @$order['basket']['fio']) ?: [];
 				foreach ($fios as $k => $v) {
 					$order['basket']['letters'][] = [
-						'fio' => $v,
+						'fio' => check_fio($v, 'скачать'),
 						'url' => '/certificate.php?key=' . base64_encode($order['id'] . '.0.' . $k)
 					];
 				}
@@ -78,4 +79,9 @@ if ($search) {
 	//
 	$html['content'] .= html_array('search_diplom/results', $order);
 	
+}
+
+function check_fio($str, $default)
+{
+    return (mb_strlen(trim($str)) > 3) ? $str : $default;
 }
