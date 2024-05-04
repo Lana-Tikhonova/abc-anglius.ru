@@ -1,4 +1,7 @@
 <?php
+ini_set("max_execution_time", "2600");
+ini_set("memory_limit", "10048M");
+
 if($u[3]=='') {
 	header('Location: /'.$modules['profile'].'/'.$u[2].'/unpaid/');
 }
